@@ -15,27 +15,20 @@ Functions - Modular approach for better code structure.
 Console-Based UI - Simple text-based navigation with clear formatting.
 🚀 How to Run
 1️⃣ Clone the repository
+
 ```
-sh
-Copy
-Edit
 git clone https://github.com/yourusername/RetroSteam.git
 cd RetroSteam
 ```
 2️⃣ Compile the project
 
-sh
-Copy
-Edit
+```
 g++ -o RetroSteam main.cpp
-
+```
 3️⃣ Run the executable
-
-sh
-Copy
-Edit
+```
 ./RetroSteam
-
+```
 4️⃣ Follow the instructions on the screen to navigate the store!
 
 🎯 Future Improvements
