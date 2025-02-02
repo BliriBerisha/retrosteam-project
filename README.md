@@ -1,4 +1,11 @@
 # 🎮 RetroSteam - A Text-Based Game Store
+__________        __                 _________ __                            _________.__                   
+\______   \ _____/  |________  ____ /   _____//  |_  ____ _____    _____    /   _____/|  |__   ____ ______  
+ |       _// __ \   __\_  __ \/  _ \\_____  \\   __\/ __ \\__  \  /     \   \_____  \ |  |  \ /  _ \\____ \ 
+ |    |   \  ___/|  |  |  | \(  <_> )        \|  | \  ___/ / __ \|  Y Y  \  /        \|   Y  (  <_> )  |_> >
+ |____|_  /\___  >__|  |__|   \____/_______  /|__|  \___  >____  /__|_|  / /_______  /|___|  /\____/|   __/ 
+        \/     \/                          \/           \/     \/      \/          \/      \/       |__|    
+---------------------------------------------------------------------------------------------------------------s
 RetroSteam is a C++ project that simulates a text-based game store, inspired by Steam. It provides users with a simple yet functional storefront where they can log in, browse available games, purchase them, and search for specific titles. The interface is structured using lines and formatting to enhance readability.
 
 📌 Features
