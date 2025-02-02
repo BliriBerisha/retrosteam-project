@@ -33,7 +33,6 @@ g++ -o RetroSteam main.cpp
 4️⃣ Follow the instructions on the screen to navigate the store!
 ----------------------------------------------------------------------
 
-
 🎯 Future Improvements
 🔹 User Accounts & Game Library - Users will have personalized accounts and a saved game collection.
 🔹 Game Reviews & Ratings - Ability to leave feedback and rate purchased games.
