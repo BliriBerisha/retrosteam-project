@@ -2,6 +2,7 @@
 using namespace std;
 
 int main() {
-    cout << "Hello, World!" << endl;
+    cout << "RetroStore Shop!!!" << endl;
     return 0;
+
 }
