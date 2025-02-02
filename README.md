@@ -13,7 +13,7 @@ C++ - Core language for the program.
 Structs & Enums - Used for organizing game data and user roles.
 Functions - Modular approach for better code structure.
 Console-Based UI - Simple text-based navigation with clear formatting.
-
+----------------------------------------------------------------------
 🚀 How to Run
 1️⃣ Clone the repository
 
