@@ -384,6 +384,7 @@ cout << endl;
                 this_thread::sleep_for(chrono::milliseconds(1000));
                 goto GiftCardMenu;
                 
+                
             }
             if (giftcards[giftCardchoice-1].price_card > bank) {
                 cout << "You don't have enough money to buy this gift card!" << endl;

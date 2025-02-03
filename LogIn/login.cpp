@@ -61,7 +61,7 @@ if (name == "admin" && password == "admin") {
     cout << "You have successfully logged in as admin!" << endl;
     this_thread::sleep_for(chrono::milliseconds(1000));
 } else if (name.length() < 3 || password.length() < 8) {
-    cout << "Invalid username or password!" << endl;
+    cout << "Username must be at least 3 characters and password must be at least 8 characters long." << endl;
     cout << "Returning back..." << endl;
     this_thread::sleep_for(chrono::milliseconds(1000));
     showlogin();
