@@ -240,6 +240,5 @@ void showGames() {
 
 int main() {
     generateBank();
-    showShop();
     return 0;
 }
