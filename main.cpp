@@ -9,12 +9,24 @@
 
 using namespace std;
 
+
+extern string name;
+extern string password;
+extern double bank;
 int main() {
     
     showlogin();
     cout << endl;
     cout << endl;
-    generateBank();
+
+
+    if (name == "admin" && password == "admin") {
+        bank = 1000000;
+        
+    } else {
+        generateBank();
+    }
+    
     cout << "Loading shop..." << endl;
     this_thread::sleep_for(chrono::milliseconds(2000));
     showShop();
