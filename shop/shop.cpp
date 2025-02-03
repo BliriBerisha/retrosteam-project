@@ -15,7 +15,7 @@ double bank = 0;
 void generateBank() {
         srand(time(0));
         bank = (rand() % 41 + 10) * 10;
- }
+}
  
 
 
@@ -42,6 +42,19 @@ struct Game {
     double price;
     status purchaseStatus;
 };
+enum status_card {
+    NOT_PURCHASED_CARD,
+    PURCHASED_CARD
+};
+
+struct GiftCard {
+    string title;
+    double price_card;
+    status_card purchaseStatus_card;
+
+
+};
+
 
 
 //stock of games
@@ -58,7 +71,16 @@ Game games[] = {
     {"Halo: The Master Chief Collection", SPECIAL, "Special Editions", 39.99, NOT_PURCHASED}
 };
 
+//stock of giftcards
 
+GiftCard giftcards[] = {
+    {"10$ Gift Card", 10, NOT_PURCHASED_CARD},
+    {"25$ Gift Card", 25, NOT_PURCHASED_CARD},
+    {"50$ Gift Card", 50, NOT_PURCHASED_CARD},
+    {"100$ Gift Card", 100, NOT_PURCHASED_CARD},
+    {"250$ Gift Card", 250, NOT_PURCHASED_CARD},
+    {"500$ Gift Card", 500, NOT_PURCHASED_CARD}
+};
 
 
  //showShop function
@@ -107,7 +129,8 @@ void showShop() {
         case 2: 
             cout << "You have selected Gift Cards!" << endl;
             cout << "Redirection to Gift Cards..." << endl;
-            this_thread::sleep_for(chrono::milliseconds(800));
+            showGiftCards();
+            this_thread::sleep_for(chrono::milliseconds(1000));
             break;
         case 3:
             cout << "You have selected Subscriptions!" << endl;
@@ -145,11 +168,14 @@ void showGames() {
    
     char paymentChoice;
     gameMenu:
+    cout << "--------------------------------" << endl;
     cout << "Games available in the shop:" << endl;
      this_thread::sleep_for(chrono::milliseconds(500));
     cout << "--------------------------------" << endl;
     cout << "Your current balance: " << bank << endl;
+    cout << "--------------------------------" << endl;
     cout << "0. Exit" << endl;
+    this_thread::sleep_for(chrono::milliseconds(1000));
     for (int i = 0 ; i< sizeof(games)/sizeof(games[0]); i++) {
         cout << i+1 << ". " << games[i].title <<  " - " << games[i].price << endl;
         this_thread::sleep_for(chrono::milliseconds(1000));
@@ -229,13 +255,112 @@ void showGames() {
             goto gameMenu;
             break;
     }
-
-
-
-
-
-    
 }
+// end of showGames function
+
+
+
+
+
+// start of showGiftCards function
+
+void showGiftCards() {
+this_thread::sleep_for(chrono::milliseconds(1000));
+    char choiceYN;
+    GiftCardMenu:
+    cout << "--------------------------------" << endl;
+    cout << "Gift Cards available in the shop:" << endl;
+    cout << "--------------------------------" << endl;
+    cout << "Your current balance: " << bank << endl;
+    cout << "--------------------------------" << endl;
+    this_thread::sleep_for(chrono::milliseconds(1000));
+    cout << "0. Exit" << endl;
+    this_thread::sleep_for(chrono::milliseconds(1000));
+    for (int i=0;i< sizeof(giftcards)/sizeof(giftcards[0]); i++) {
+        cout << i+1 << ". " << giftcards[i].title << " - " << giftcards[i].price_card << endl;
+        this_thread::sleep_for(chrono::milliseconds(1000));
+    }
+    cout << "--------------------------------" << endl;
+    cout << "Enter the number of the gift card you want to buy: ";
+    cout << endl;
+    int giftCardchoice;
+    cin >> giftCardchoice;
+       if (giftCardchoice < 0 || giftCardchoice > sizeof(giftcards)/sizeof(giftcards[0])) {
+        cout << "Invalid choice!" << endl;
+        cout << "Returning back..." << endl;
+        goto GiftCardMenu;
+
+        showGiftCards;
+    } else if (giftCardchoice == 0) {
+        cout << "Exiting..." << endl;
+        showShop();
+        this_thread::sleep_for(chrono::milliseconds(1000));
+        exit(0);
+    }
+    cout << "--------------------------------" << endl;
+    cout << "You have selected " << giftcards[giftCardchoice-1].title << " - " << giftcards[giftCardchoice-1].price_card << endl;
+    cout << "--------------------------------" << endl;
+    cout << "Are you sure you want to buy this gift card?" << endl;
+     this_thread::sleep_for(chrono::milliseconds(1000));
+     cout << "Enter 'Y' for Yes or 'N' for No: ";
+      this_thread::sleep_for(chrono::milliseconds(1000));
+    cin >> choiceYN;
+    switch (choiceYN) {
+        case 'y':
+        case 'Y':
+            if (giftcards[giftCardchoice-1].purchaseStatus_card == PURCHASED_CARD) {
+                cout << "You have already bought this gift card!" << endl;
+                cout << "Returning back..." << endl;
+                this_thread::sleep_for(chrono::milliseconds(1000));
+                goto GiftCardMenu;
+                
+            }
+            if (giftcards[giftCardchoice-1].price_card > bank) {
+                cout << "You don't have enough money to buy this gift card!" << endl;
+                cout << "Returning back..." << endl;
+                this_thread::sleep_for(chrono::milliseconds(1000));
+                goto GiftCardMenu;
+            }
+        
+            bank -= giftcards[giftCardchoice-1].price_card;
+            cout << "You have successfully bought " << giftcards[giftCardchoice-1].title << "!" << endl;
+            this_thread::sleep_for(chrono::milliseconds(1000));
+            cout << "Your remaining balance is: " << bank << endl;
+            this_thread::sleep_for(chrono::milliseconds(1000));
+            cout << "Returning back..." << endl;
+            this_thread::sleep_for(chrono::milliseconds(1000));
+    
+
+            giftcards[giftCardchoice-1].purchaseStatus_card = PURCHASED_CARD;
+            goto GiftCardMenu;
+            break;
+            case 'n':
+            case 'N':
+                cout << "You have selected No!" << endl;
+                cout << "Returning back..." << endl;
+                this_thread::sleep_for(chrono::milliseconds(1000));
+                goto GiftCardMenu;
+                break;
+            default:    
+                cout << "Invalid choice!" << endl;
+                cout << "Returning back..." << endl;
+                this_thread::sleep_for(chrono::milliseconds(1000));
+                goto GiftCardMenu;
+                break;
+
+
+
+    }
+    this_thread::sleep_for(chrono::milliseconds(1000));
+
+     
+}
+
+
+
+
+
+
 
 
 
