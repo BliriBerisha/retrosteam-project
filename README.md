@@ -28,7 +28,7 @@ g++ -o RetroSteam.exe RetroSteam.cpp LogIn/login.cpp shop/shop.cpp outro/outro.c
 
 ### 3️⃣ Run the executable
 ```sh
-./RetroSteam.exe
+.\RetroSteam.exe
 ```
 
 ## 📂 Project Structure
@@ -58,6 +58,10 @@ retrosteam-project-main/
 - Search feature for games
 - Simple text-based interface
 - Bank & Payment system
+
+# Logging in (recommended)
+- Users can log in with any username and password, provided that the **username** is at least **4 characters long** and the **password** is at least **9 characters long**.
+- Use username: admin , password: admin to grant 1000000 money in your bank to check the project out
 
 ## 🛠 Requirements
 - Use Visual Studio Code and execute through terminal (highly recommended)
