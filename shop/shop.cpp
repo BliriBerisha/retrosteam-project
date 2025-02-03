@@ -15,7 +15,7 @@ double bank = 0;
 void generateBank() {
         srand(time(0));
         bank = (rand() % 41 + 10) * 10;
- }
+}
  
 
 
@@ -42,6 +42,18 @@ struct Game {
     double price;
     status purchaseStatus;
 };
+enum status_card {
+    NOT_PURCHASED_CARD,
+    PURCHASED_CARD
+};
+
+struct GiftCard {
+    string title;
+    double price_card;
+    status_card purchaseStatus_card;
+
+};
+
 
 
 //stock of games
@@ -229,13 +241,73 @@ void showGames() {
             goto gameMenu;
             break;
     }
-
-
-
-
-
-    
 }
+// end of showGames function
+
+
+void showGiftCards() {
+    int choiceYN;
+    cout << "Gift Cards available in the shop:" << endl;
+    cout << "--------------------------------" << endl;
+    cout << "1. $10 Gift Card - $10" << endl;
+    cout << "2. $25 Gift Card - $25" << endl;
+    cout << "3. $50 Gift Card - $50" << endl;
+    cout << "4. $100 Gift Card - $100" << endl;
+    cout << "5. $250 Gift Card - $250" << endl;
+    cout << "6. $500 Gift Card - $500" << endl;
+    cout << "--------------------------------" << endl;
+    cout << "Enter the number of the gift card you want to buy: ";
+    cout << endl;
+    int choice;
+    cin >> choice;
+
+
+    switch (choice) {
+        case 1:
+            cout << "You have selected $10 Gift Card!" << endl;
+            cout << "Redirecting to payment..." << endl;
+            this_thread::sleep_for(chrono::milliseconds(1000));
+            break;
+        case 2:
+            cout << "You have selected $25 Gift Card!" << endl;
+    cout << "Redirecting to payment..." << endl;
+    this_thread::sleep_for(chrono::milliseconds(1000));
+    break;
+case 3:
+    cout << "You have selected $50 Gift Card!" << endl;
+    cout << "Redirecting to payment..." << endl;
+    this_thread::sleep_for(chrono::milliseconds(1000));
+    break;
+case 4:
+    cout << "You have selected $100 Gift Card!" << endl;
+    cout << "Redirecting to payment..." << endl;
+    this_thread::sleep_for(chrono::milliseconds(1000));
+    break;
+case 5:
+    cout << "You have selected $250 Gift Card!" << endl;
+    cout << "Redirecting to payment..." << endl;
+    this_thread::sleep_for(chrono::milliseconds(1000));
+    break;
+case 6:
+    cout << "You have selected $500 Gift Card!" << endl;
+    cout << "Redirecting to payment..." << endl;
+    this_thread::sleep_for(chrono::milliseconds(1000));
+    break;
+default:
+    cout << "Invalid choice!" << endl;
+    cout << "Returning back..." << endl;
+    this_thread::sleep_for(chrono::milliseconds(1000));
+
+ 
+ 
+     }
+}
+
+
+
+
+
+
 
 
 
