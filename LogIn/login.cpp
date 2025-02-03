@@ -28,6 +28,8 @@ cout << "Password: ";
 cin >> password;
 cout << endl;
 cout << ".⋆｡⋆☂˚｡⋆｡˚☽˚｡⋆. Welcome " << name << "! .⋆｡⋆☂˚｡⋆｡˚☽˚｡⋆." << endl;
+cout << endl;
+cout << endl;
 
 
 
