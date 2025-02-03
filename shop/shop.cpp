@@ -16,6 +16,7 @@ void generateBank() {
  }
 
 
+
 enum GameEdition {
     STANDARD,
     COLLECTORS,
@@ -26,19 +27,17 @@ enum GameEdition {
     SPECIAL
 };
 
+enum status {
+    NOT_PURCHASED,
+    PURCHASED
+};
+
 struct Game {
     string title;
     GameEdition edition;
     string description;
     double price;
     status purchaseStatus;
-};
-
-
-
-enum status {
-    NOT_PURCHASED,
-    PURCHASED
 };
 
 Game games[] = {
@@ -133,26 +132,32 @@ void showShop() {
 
 void showGames() {
     int gameChoice;
-    int countTrue = 0;
+   
     char paymentChoice;
     gameMenu:
     cout << "Games available in the shop:" << endl;
     cout << "--------------------------------" << endl;
+    cout << "0. Exit" << endl;
     for (int i = 0 ; i< sizeof(games)/sizeof(games[0]); i++) {
         cout << i+1 << ". " << games[i].title <<  " - " << games[i].price << endl;
         this_thread::sleep_for(chrono::milliseconds(1000));
     }
     cout << "--------------------------------" << endl;
-    cout << "Enter the number of the game you want to buy: ";
+    cout << "Enter the number of the game you want to buy (0 to Exit...): ";
     cout << endl;
     cin >> gameChoice;
    
-    if (gameChoice < 1 || gameChoice > sizeof(games)/sizeof(games[0])) {
+    if (gameChoice < 0 || gameChoice > sizeof(games)/sizeof(games[0])) {
         cout << "Invalid choice!" << endl;
-        cout << "Returning to back..." << endl;
+        cout << "Returning back..." << endl;
         this_thread::sleep_for(chrono::milliseconds(1500));
 
         goto gameMenu;
+    } else if (gameChoice == 0) {
+        cout << "Exiting..." << endl;
+        showShop();
+        this_thread::sleep_for(chrono::milliseconds(1000));
+        exit(0);
     }
 
     
@@ -169,14 +174,14 @@ void showGames() {
     switch (paymentChoice) {
         case 'Y':
         case 'y':
-            games[gameChoice-1].purchaseStatus = PURCHASED;
+            
             cout << "You have selected Yes!" << endl;
             cout << "Redirecting to payment..." << endl;
             this_thread::sleep_for(chrono::milliseconds(1000));
 
             if (games[gameChoice-1].price > bank) {
                 cout << "You don't have enough money to buy this game!" << endl;
-                cout << "Returning to back..." << endl;
+                cout << "Returning back..." << endl;
                 this_thread::sleep_for(chrono::milliseconds(1000));
                 goto gameMenu;
             }
@@ -191,8 +196,8 @@ void showGames() {
                 bank -= games[gameChoice-1].price;
                 cout << "You have successfully bought " << games[gameChoice-1].title << "!" << endl;
                 cout << "Your remaining balance is: " << bank << endl;
-                cout << "Returning to back..." << endl;
-                
+                cout << "Returning back..." << endl;
+                games[gameChoice-1].purchaseStatus = PURCHASED;
                 this_thread::sleep_for(chrono::milliseconds(1000));
                 goto gameMenu;
             }
@@ -201,13 +206,13 @@ void showGames() {
         case 'N':
         case 'n':
             cout << "You have selected No!" << endl;
-            cout << "Returning to back..." << endl;
+            cout << "Returning back..." << endl;
             this_thread::sleep_for(chrono::milliseconds(1000));
             goto gameMenu;
             break;
         default:
             cout << "Invalid choice!" << endl;
-            cout << "Returning to back..." << endl;
+            cout << "Returning back..." << endl;
             this_thread::sleep_for(chrono::milliseconds(1000));
             goto gameMenu;
             break;
