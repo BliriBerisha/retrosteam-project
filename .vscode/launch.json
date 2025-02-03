@@ -2,6 +2,18 @@
   "version": "0.2.0",
   "configurations": [
     {
+<<<<<<< HEAD
+      "name": "Debug C++ Program",
+      "type": "cppdbg",
+      "request": "launch",
+      "program": "${workspaceFolder}/main.exe",
+      "args": [],
+      "stopAtEntry": false,
+      "cwd": "${workspaceFolder}",
+      "environment": [],
+      "externalConsole": false,
+      "MIMode": "gdb",
+=======
       "name": "C/C++ Runner: Debug Session",
       "type": "cppdbg",
       "request": "launch",
@@ -12,12 +24,40 @@
       "program": "c:/Users/bliri/OneDrive/Desktop/retrosteam-project/shop/build/Debug/outDebug",
       "MIMode": "gdb",
       "miDebuggerPath": "gdb",
+>>>>>>> main
       "setupCommands": [
         {
           "description": "Enable pretty-printing for gdb",
           "text": "-enable-pretty-printing",
           "ignoreFailures": true
         }
+<<<<<<< HEAD
+      ],
+      "miDebuggerPath": "/usr/bin/gdb",
+      "preLaunchTask": "build",
+      "logging": {
+        "moduleLoad": false
+      }
+    },
+    {
+      "name": "C/C++ Runner: Debug Session",
+      "type": "cppdbg",
+      "request": "launch",
+      "args": [],
+      "stopAtEntry": false,
+      "externalConsole": true,
+      "cwd": "c:/Users/bliri/OneDrive/Desktop/retrosteam-project",
+      "program": "c:/Users/bliri/OneDrive/Desktop/retrosteam-project/build/Debug/outDebug",
+      "MIMode": "gdb",
+      "miDebuggerPath": "gdb",
+      "setupCommands": [
+        {
+          "description": "Enable pretty-printing for gdb",
+          "text": "-enable-pretty-printing",
+          "ignoreFailures": true
+        }
+=======
+>>>>>>> main
       ]
     }
   ]
