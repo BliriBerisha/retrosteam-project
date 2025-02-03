@@ -9,4 +9,5 @@ extern double bank; // bank balance
 void showShop();
 void showGames();
 void showGiftCards();
+void showSubscription();
 void generateBank();

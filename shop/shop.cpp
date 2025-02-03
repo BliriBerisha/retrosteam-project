@@ -1,4 +1,5 @@
 #include <iostream>
+#include <iomanip>
 #include <thread>
 #include <chrono>
 #include <string>
@@ -9,17 +10,17 @@
 
 using namespace std;
 
-
+// bank and generate bank
 double bank = 0;
 
 void generateBank() {
         srand(time(0));
         bank = (rand() % 41 + 10) * 10;
 }
- 
+  // end of generateBank function
 
 
-
+// enum for gameedition
 enum GameEdition {
     STANDARD,
     COLLECTORS,
@@ -30,11 +31,14 @@ enum GameEdition {
     SPECIAL
 };
 
+// enum gamestatus
 enum status {
     NOT_PURCHASED,
     PURCHASED
 };
 
+
+// struct game
 struct Game {
     string title;
     GameEdition edition;
@@ -42,11 +46,16 @@ struct Game {
     double price;
     status purchaseStatus;
 };
+
+
+
+
+// enum giftcard status
 enum status_card {
     NOT_PURCHASED_CARD,
     PURCHASED_CARD
 };
-
+//  struct for giftcard
 struct GiftCard {
     string title;
     double price_card;
@@ -54,6 +63,43 @@ struct GiftCard {
 
 
 };
+
+
+enum status_sub {
+    NOT_PURCHASED_SUB,
+    PURCHASED_SUB
+};
+
+enum status_canbuy {
+    CAN_BUY,
+    CANNOT_BUY
+};
+
+struct Subscriptions {
+    string title;
+    double price_sub;
+    string description_sub;
+    status_sub purchaseStatus_sub;
+    status_canbuy canbuy;
+    double percentage;
+};
+
+
+
+
+Subscriptions subscriptions[] = {
+    {"1 Month Subscription", 10, "20% Sale on All Games", NOT_PURCHASED_SUB , CAN_BUY , 0.2},
+    {"3 Month Subscription", 25, "30% Sale on All Games", NOT_PURCHASED_SUB , CAN_BUY , 0.3},
+    {"6 Month Subscription", 50,  "40% Sale on All Games",NOT_PURCHASED_SUB , CAN_BUY , 0.4},
+    {"1 Year Subscription", 100, "50% Sale on All Games" , NOT_PURCHASED_SUB, CAN_BUY , 0.5}
+};
+
+
+
+
+
+
+
 
 
 
@@ -85,12 +131,10 @@ GiftCard giftcards[] = {
 
  //showShop function
 
+
+
 void showShop() {
-
     int choice;
-
-
-
   
 for (char c : "---------------------------") {
     cout << c << flush;
@@ -156,7 +200,8 @@ cout << endl;
         case 3:
             cout << "You have selected Subscriptions!" << endl;
             cout << "Redirection to Subscriptions..." << endl;
-            this_thread::sleep_for(chrono::milliseconds(800));
+            showSubscription();
+            this_thread::sleep_for(chrono::milliseconds(1000));
             break;
         case 4:
             cout << "You have selected Exit!" << endl;
@@ -335,7 +380,7 @@ cout << endl;
     cout << "0. Exit" << endl;
     this_thread::sleep_for(chrono::milliseconds(1000));
     for (int i=0;i< sizeof(giftcards)/sizeof(giftcards[0]); i++) {
-        cout << i+1 << ". " << giftcards[i].title << " - " << giftcards[i].price_card << endl;
+        cout << i+1 << ". " << giftcards[i].title << " - " << fixed << setprecision(2) << giftcards[i].price_card << endl;
         this_thread::sleep_for(chrono::milliseconds(1000));
     }
     for (char c : " ---------------------------") {
@@ -383,7 +428,7 @@ cout << endl;
                 cout << "Returning back..." << endl;
                 this_thread::sleep_for(chrono::milliseconds(1000));
                 goto GiftCardMenu;
-                
+
                 
             }
             if (giftcards[giftCardchoice-1].price_card > bank) {
@@ -427,13 +472,147 @@ cout << endl;
      
 }
 
+// end of showGiftCards function
 
 
 
+void showSubscription() {
+    this_thread::sleep_for(chrono::milliseconds(1000));
+    int subChoice;
+    char paymentChoice;
+    subMenu:
+    for (char c : " ---------------------------") {
+        cout << c << flush;
+        this_thread::sleep_for(chrono::milliseconds(10));
+    }
+    cout << endl;
+    cout << "Subscriptions available in the shop:" << endl;
+    this_thread::sleep_for(chrono::milliseconds(500));
+    for (char c : " ---------------------------") {
+        cout << c << flush;
+        this_thread::sleep_for(chrono::milliseconds(10));
+    }
+    cout << endl;
+    cout << "Your current balance: " << bank << endl;
+    for (char c : " ---------------------------") {
+        cout << c << flush;
+        this_thread::sleep_for(chrono::milliseconds(10));
+    }
+    cout << endl;
+    cout << "0. Exit" << endl;
+    this_thread::sleep_for(chrono::milliseconds(1000));
+    for (int i = 0; i < sizeof(subscriptions) / sizeof(subscriptions[0]); i++) {
+        cout << i + 1 << ". " << subscriptions[i].title << " - " << subscriptions[i].description_sub << " - " << subscriptions[i].price_sub << endl;
+        this_thread::sleep_for(chrono::milliseconds(1000));
+    }
+    for (char c : " ---------------------------") {
+        cout << c << flush;
+        this_thread::sleep_for(chrono::milliseconds(10));
+    }
+    cout << endl;
+    cout << "Enter the number of the subscription you want to buy (0 to Exit...): ";
+    cout << endl;
+    cin >> subChoice;
+
+    
+
+    if (subChoice < 0 || subChoice > sizeof(subscriptions) / sizeof(subscriptions[0])) {
+        cout << "Invalid choice!" << endl;
+        cout << "Returning back..." << endl;
+        this_thread::sleep_for(chrono::milliseconds(1500));
+        goto subMenu;
+    } else if (subChoice == 0) {
+        cout << "Exiting..." << endl;
+        showShop();
+        this_thread::sleep_for(chrono::milliseconds(1000));
+        exit(0);
+    }
+
+    for (char c : " ---------------------------") {
+        cout << c << flush;
+        this_thread::sleep_for(chrono::milliseconds(10));
+    }
+    cout << endl;
+    cout << "You have selected " << subscriptions[subChoice - 1].title << " - " << subscriptions[subChoice - 1].price_sub << endl;
+    for (char c : " ---------------------------") {
+        cout << c << flush;
+        this_thread::sleep_for(chrono::milliseconds(10));
+    }
+    cout << endl;
+
+    cout << "Proceed to payment?" << endl;
+    cout << "Enter 'Y' for Yes or 'N' for No: ";
+    cin >> paymentChoice;
+
+    switch (paymentChoice) {
+        case 'Y':
+        case 'y':
+            cout << "You have selected Yes!" << endl;
+            cout << "Redirecting to payment..." << endl;
+            this_thread::sleep_for(chrono::milliseconds(1000));
+
+
+            if (subscriptions[subChoice-1].canbuy == CANNOT_BUY) {
+                cout << "You can't buy this subscription because you already have one!" << endl;
+                cout << "Returning back..." << endl;
+                this_thread::sleep_for(chrono::milliseconds(1000));
+                goto subMenu;
+            }
+
+            if (subscriptions[subChoice - 1].purchaseStatus_sub == PURCHASED_SUB) {
+                cout << "You have already bought this subscription!" << endl;
+                cout << "Returning back..." << endl;
+                this_thread::sleep_for(chrono::milliseconds(1000));
+                goto subMenu;
+            }
+            if (subscriptions[subChoice - 1].price_sub > bank) {
+                cout << "You don't have enough money to buy this subscription!" << endl;
+                cout << "Returning back..." << endl;
+                this_thread::sleep_for(chrono::milliseconds(1000));
+                goto subMenu;
+            }
+
+            // buying subscription
+            bank -= subscriptions[subChoice - 1].price_sub;
+            cout << "You have successfully bought " << subscriptions[subChoice - 1].title << "!" << endl;
+            cout << "You now have " << subscriptions[subChoice - 1].description_sub << "!" << endl;
+            this_thread::sleep_for(chrono::milliseconds(1500));
+            cout << "Your remaining balance is: " << bank << endl;
+            cout << "Returning back..." << endl;
+        subscriptions[subChoice-1].purchaseStatus_sub = PURCHASED_SUB;
+        for (int i = 0; i<sizeof(subscriptions)/sizeof(subscriptions[0]); i++) {
+            if (i != subChoice - 1) {
+                subscriptions[i].canbuy = CANNOT_BUY;
+            }
+        }
+        for (int i = 0; i < sizeof(games) / sizeof(games[0]); i++) {
+            games[i].price = games[i].price * (1-subscriptions[subChoice-1].percentage);
+        }
+
+
+           
 
 
 
+            this_thread::sleep_for(chrono::milliseconds(1000));
+            goto subMenu;
 
+            break;
+        case 'N':
+        case 'n':
+            cout << "You have selected No!" << endl;
+            cout << "Returning back..." << endl;
+            this_thread::sleep_for(chrono::milliseconds(1000));
+            goto subMenu;
+            break;
+        default:
+            cout << "Invalid choice!" << endl;
+            cout << "Returning back..." << endl;
+            this_thread::sleep_for(chrono::milliseconds(1000));
+            goto subMenu;
+            break;
+    }
+}
 
 
 

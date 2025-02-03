@@ -15,6 +15,7 @@ extern string password;
 extern double bank;
 int main() {
     
+    
     showlogin();
     cout << endl;
     cout << endl;
