@@ -61,7 +61,8 @@ retrosteam-project-main/
 
 # Logging in (recommended)
 - Users can log in with any username and password, provided that the **username** is at least **4 characters long** and the **password** is at least **9 characters long**.
-- Use username: admin , password: admin to grant 1000000 money in your bank to check the project out
+- "Please use the username 'admin' and password 'admin' to log in and grant yourself **1,000,000 money** in the bank to check out the project." (optional)
+- Normal users will be granted random amount of bank money (retro-money)
 
 ## 🛠 Requirements
 - Use Visual Studio Code and execute through terminal (highly recommended)
