@@ -2,7 +2,10 @@
 #include <thread>
 #include <chrono>
 #include <string>
+#include <cstdlib>
+#include <ctime>
 #include "shop.h"
+
 
 using namespace std;
 
@@ -43,6 +46,10 @@ void showShop() {
 
     int choice;
 
+
+    srand(time(0));
+    double bank = (rand() % 41 + 10) * 10;
+
     cout << "Welcome to the RetroSteam Shop!" << endl;
     this_thread::sleep_for(chrono::milliseconds(1000));
     cout << "Here you can buy games with a cheap and valid prices! " << endl;
@@ -52,6 +59,7 @@ void showShop() {
     cout << "You can also buy a subscription to play games for a limited time! " << endl;
     this_thread::sleep_for(chrono::milliseconds(1000));
 
+    cout << "You have this amount of retro-money: " << bank << endl;
      menu:
     cout << "What would you like to buy?" << endl;
     this_thread::sleep_for(chrono::milliseconds(1000));
