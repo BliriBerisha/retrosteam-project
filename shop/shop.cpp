@@ -9,7 +9,9 @@
 
 using namespace std;
 
-double bank;
+
+double bank = 0;
+
 void generateBank() {
         srand(time(0));
         bank = (rand() % 41 + 10) * 10;

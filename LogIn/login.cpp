@@ -8,10 +8,12 @@
 #include "login.h"
 using namespace std;
 
+string name;
+string password;
+
 
 void showlogin() {
-    string name;
-    string password;
+   
 
 
 
@@ -38,6 +40,18 @@ cout << "Username: ";
 cin >> name;
 cout << "Password: ";
 cin >> password;
+
+if (name == "admin" && password == "admin") {
+    cout << "You have successfully logged in as admin!" << endl;
+    this_thread::sleep_for(chrono::milliseconds(1000));
+} else if (name.length() < 3 || password.length() < 8) {
+    cout << "Invalid username or password!" << endl;
+    cout << "Returning back..." << endl;
+    this_thread::sleep_for(chrono::milliseconds(1000));
+    showlogin();
+}
+
+
 cout << endl;
 cout << "Logging in as " << name << "..." << endl;
 this_thread::sleep_for(chrono::milliseconds(1000));
