@@ -1,6 +1,17 @@
 # RetroSteam
 
-RetroSteam is a text-based game store simulation inspired by Steam, built in C++. It includes functionalities such as login, purchasing games, and searching for titles, with a structured interface using text formatting.
+```
+__________        __                    _________ __                         
+\______   \ _____/  |________  ____    /   _____//  |_  ____ _____    _____  
+ |       _// __ \   __\_  __ \/  _ \   \_____  \\   __\/ __ \\__  \  /     \ 
+ |    |   \  ___/|  |  |  | \(  <_> )  /        \|  | \  ___/ / __ \|  Y Y  \
+ |____|_  /\___  >__|  |__|   \____/  /_______  /|__|  \___  >____  /__|_|  /
+        \/     \/                             \/           \/     \/      \/ 
+```
+
+RetroSteam is a text-based game store simulation inspired by Steam, built in C++. It provides users with a nostalgic command-line interface where they can browse, purchase, and manage their game collection. The project replicates the essence of early digital game distribution platforms, offering a structured shopping experience entirely through text-based commands and ASCII visuals.
+
+Users can log in, purchase games, buy gift cards, subscribe to services, and enjoy an interactive ASCII-art outro. RetroSteam is a lightweight alternative to modern game stores, perfect for those who appreciate retro-style interfaces.
 
 ## 🚀 How to Run
 
@@ -24,6 +35,7 @@ g++ -o RetroSteam.exe RetroSteam.cpp LogIn/login.cpp shop/shop.cpp outro/outro.c
 ```
 retrosteam-project-main/
 ├── RetroSteam.cpp
+├── RetroSteam.exe
 ├── LogIn/
 │   ├── login.cpp
 │   ├── login.h
@@ -39,15 +51,22 @@ retrosteam-project-main/
 ## 🔧 Features
 - User login system
 - Game purchasing functionality
+- Gift card purchase system
+- Subscription system
+- ASCII art display
+- Outro ASCII art display
 - Search feature for games
 - Simple text-based interface
+- Bank & Payment system
 
 ## 🛠 Requirements
+- Use Visual Studio Code and execute through terminal (highly recommended)
 - C++ Compiler (g++)
 - Compatible terminal to run the executable
+- Can run .exe file without compiling (maybe).
 
 ## 📜 License
-This project is licensed under the MIT License.
+This project is licensed under the MIT License. And is FREE to use or modify.
 
 ## 🤝 Contributing
 Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
