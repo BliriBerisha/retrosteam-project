@@ -6,6 +6,7 @@
 #include <ctime>
 #include "LogIn/login.h"
 #include "shop/shop.h"
+#include "outro/outro.h"
 
 using namespace std;
 
@@ -31,6 +32,7 @@ int main() {
     cout << "Loading shop..." << endl;
     this_thread::sleep_for(chrono::milliseconds(2000));
     showShop();
+
 
     return 0;
 

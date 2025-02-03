@@ -6,6 +6,9 @@
 #include <cstdlib>
 #include <ctime>
 #include "shop.h"
+#include "../outro/outro.h"
+
+
 
 
 using namespace std;
@@ -206,6 +209,7 @@ cout << endl;
         case 4:
             cout << "You have selected Exit!" << endl;
             cout << "Exiting..." << endl;
+            showOutro();
             this_thread::sleep_for(chrono::milliseconds(1000));
             break;
         default:
