@@ -59,12 +59,12 @@ retrosteam-project-main/
 - Simple text-based interface
 - Bank & Payment system
 
-# Logging in (recommended)
+## Logging in (recommended)
 - Users can log in with any username and password, provided that the **username** is at least **4 characters long** and the **password** is at least **9 characters long**.
 - "Please use the username 'admin' and password 'admin' to log in and grant yourself **1,000,000 money** in the bank to check out the project." (optional)
 - Normal users will be granted random amount of bank money (retro-money)
 
-# 🛠 Requirements
+## 🛠 Requirements
 - Use Visual Studio Code and execute through terminal (highly recommended)
 - C++ Compiler (g++)
 - Compatible terminal to run the executable
