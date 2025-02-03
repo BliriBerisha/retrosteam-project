@@ -31,11 +31,11 @@ cd RetroSteam
 2️⃣ Compile the project
 
 ```
-g++ -o RetroSteam main.cpp
+g++ -o main.exe main.cpp LogIn/login.cpp shop/shop.cpp
 ```
 3️⃣ Run the executable
 ```
-./RetroSteam
+./main.exe
 ```
 4️⃣ Follow the instructions on the screen to navigate the store!
 ----------------------------------------------------------------------
