@@ -92,7 +92,11 @@ void showShop() {
 
 
   
-
+for (char c : "---------------------------") {
+    cout << c << flush;
+    this_thread::sleep_for(chrono::milliseconds(10));
+}
+cout << endl;
     cout << "Welcome to the RetroSteam Shop!" << endl;
     this_thread::sleep_for(chrono::milliseconds(1000));
     cout << "Here you can buy games with a cheap and valid prices! " << endl;
@@ -101,11 +105,24 @@ void showShop() {
     this_thread::sleep_for(chrono::milliseconds(1000));
     cout << "You can also buy a subscription to play games for a limited time! " << endl;
     this_thread::sleep_for(chrono::milliseconds(1000));
-    cout << "--------------------------------" << endl;
+    for (char c : " ---------------------------") {
+    cout << c << flush;
+    this_thread::sleep_for(chrono::milliseconds(10));
+}
+cout << endl;
     cout << "You have this amount of Retro-Money: " << bank << endl;
-    cout << "--------------------------------" << endl;
+    for (char c : " ---------------------------") {
+    cout << c << flush;
+    this_thread::sleep_for(chrono::milliseconds(10));
+}
+cout << endl;
      menu:
-    cout << "--------------------------------" << endl;
+    for (char c : " ---------------------------") {
+    cout << c << flush;
+    this_thread::sleep_for(chrono::milliseconds(10));
+}
+cout << endl;
+
     cout << "What would you like to buy?" << endl;
     this_thread::sleep_for(chrono::milliseconds(1000));
    
@@ -114,7 +131,11 @@ void showShop() {
     cout << "2. Gift Cards" << endl;
     cout << "3. Subscriptions" << endl;
     cout << "4. Exit" << endl;
-    cout << "--------------------------------" << endl;
+    for (char c : " ---------------------------") {
+    cout << c << flush;
+    this_thread::sleep_for(chrono::milliseconds(10));
+}
+cout << endl;
     this_thread::sleep_for(chrono::milliseconds(1000));
     cout << "Enter your choice (in numbers): ";
     cin>> choice;
@@ -168,19 +189,36 @@ void showGames() {
    
     char paymentChoice;
     gameMenu:
-    cout << "--------------------------------" << endl;
+    for (char c : " ---------------------------") {
+    cout << c << flush;
+    this_thread::sleep_for(chrono::milliseconds(10));
+}
+
+cout << endl;
     cout << "Games available in the shop:" << endl;
      this_thread::sleep_for(chrono::milliseconds(500));
-    cout << "--------------------------------" << endl;
+    for (char c : " ---------------------------") {
+    cout << c << flush;
+    this_thread::sleep_for(chrono::milliseconds(10));
+}
+cout << endl;
     cout << "Your current balance: " << bank << endl;
-    cout << "--------------------------------" << endl;
+    for (char c : " ---------------------------") {
+    cout << c << flush;
+    this_thread::sleep_for(chrono::milliseconds(10));
+}
+cout << endl;
     cout << "0. Exit" << endl;
     this_thread::sleep_for(chrono::milliseconds(1000));
     for (int i = 0 ; i< sizeof(games)/sizeof(games[0]); i++) {
         cout << i+1 << ". " << games[i].title <<  " - " << games[i].price << endl;
         this_thread::sleep_for(chrono::milliseconds(1000));
     }
-    cout << "--------------------------------" << endl;
+    for (char c : " ---------------------------") {
+    cout << c << flush;
+    this_thread::sleep_for(chrono::milliseconds(10));
+}
+cout << endl;
     cout << "Enter the number of the game you want to buy (0 to Exit...): ";
     cout << endl;
     cin >> gameChoice;
@@ -201,9 +239,17 @@ void showGames() {
     
 
 
-    cout << "--------------------------------" << endl;
+   for (char c : " ---------------------------") {
+    cout << c << flush;
+    this_thread::sleep_for(chrono::milliseconds(10));
+}
+cout << endl;
     cout << "You have selected " << games[gameChoice-1].title << " - " << games[gameChoice-1].description << " - " << games[gameChoice-1].price << endl;
-    cout << "--------------------------------" << endl;
+    for (char c : " ---------------------------") {
+    cout << c << flush;
+    this_thread::sleep_for(chrono::milliseconds(10));
+}
+cout << endl;
     
     cout << "Proceed to payment?" << endl;
     cout << "Enter 'Y' for Yes or 'N' for No: ";
@@ -268,11 +314,23 @@ void showGiftCards() {
 this_thread::sleep_for(chrono::milliseconds(1000));
     char choiceYN;
     GiftCardMenu:
-    cout << "--------------------------------" << endl;
+    for (char c : " ---------------------------") {
+    cout << c << flush;
+    this_thread::sleep_for(chrono::milliseconds(10));
+}
+cout << endl;
     cout << "Gift Cards available in the shop:" << endl;
-    cout << "--------------------------------" << endl;
+    for (char c : " ---------------------------") {
+    cout << c << flush;
+    this_thread::sleep_for(chrono::milliseconds(10));
+}
+cout << endl;
     cout << "Your current balance: " << bank << endl;
-    cout << "--------------------------------" << endl;
+    for (char c : " ---------------------------") {
+    cout << c << flush;
+    this_thread::sleep_for(chrono::milliseconds(10));
+}
+cout << endl;
     this_thread::sleep_for(chrono::milliseconds(1000));
     cout << "0. Exit" << endl;
     this_thread::sleep_for(chrono::milliseconds(1000));
@@ -280,7 +338,11 @@ this_thread::sleep_for(chrono::milliseconds(1000));
         cout << i+1 << ". " << giftcards[i].title << " - " << giftcards[i].price_card << endl;
         this_thread::sleep_for(chrono::milliseconds(1000));
     }
-    cout << "--------------------------------" << endl;
+    for (char c : " ---------------------------") {
+    cout << c << flush;
+    this_thread::sleep_for(chrono::milliseconds(10));
+}
+cout << endl;
     cout << "Enter the number of the gift card you want to buy: ";
     cout << endl;
     int giftCardchoice;
@@ -297,9 +359,17 @@ this_thread::sleep_for(chrono::milliseconds(1000));
         this_thread::sleep_for(chrono::milliseconds(1000));
         exit(0);
     }
-    cout << "--------------------------------" << endl;
+    for (char c : " ---------------------------") {
+    cout << c << flush;
+    this_thread::sleep_for(chrono::milliseconds(10));
+}
+cout << endl;
     cout << "You have selected " << giftcards[giftCardchoice-1].title << " - " << giftcards[giftCardchoice-1].price_card << endl;
-    cout << "--------------------------------" << endl;
+    for (char c : " ---------------------------") {
+    cout << c << flush;
+    this_thread::sleep_for(chrono::milliseconds(10));
+}
+cout << endl;
     cout << "Are you sure you want to buy this gift card?" << endl;
      this_thread::sleep_for(chrono::milliseconds(1000));
      cout << "Enter 'Y' for Yes or 'N' for No: ";
