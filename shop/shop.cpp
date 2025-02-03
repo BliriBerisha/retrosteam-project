@@ -9,6 +9,13 @@
 
 using namespace std;
 
+double bank;
+void generateBank() {
+        srand(time(0));
+        bank = (rand() % 41 + 10) * 10;
+ }
+
+
 enum GameEdition {
     STANDARD,
     COLLECTORS,
@@ -41,14 +48,14 @@ Game games[] = {
 };
 
 
-
+ 
 void showShop() {
 
     int choice;
 
 
-    srand(time(0));
-    double bank = (rand() % 41 + 10) * 10;
+
+  
 
     cout << "Welcome to the RetroSteam Shop!" << endl;
     this_thread::sleep_for(chrono::milliseconds(1000));
@@ -59,7 +66,7 @@ void showShop() {
     cout << "You can also buy a subscription to play games for a limited time! " << endl;
     this_thread::sleep_for(chrono::milliseconds(1000));
 
-    cout << "You have this amount of retro-money: " << bank << endl;
+    cout << "You have this amount of Retro-Money: " << bank << endl;
      menu:
     cout << "What would you like to buy?" << endl;
     this_thread::sleep_for(chrono::milliseconds(1000));
@@ -141,6 +148,7 @@ void showGames() {
     cout << "--------------------------------" << endl;
     cout << "You have selected " << games[gameChoice-1].title << " - " << games[gameChoice-1].description << " - " << games[gameChoice-1].price << endl;
     cout << "--------------------------------" << endl;
+    
     cout << "Proceed to payment?" << endl;
     cout << "Enter 'Y' for Yes or 'N' for No: ";
     cin >> paymentChoice;
@@ -170,6 +178,7 @@ void showGames() {
 
 
 
+
     
 }
 
@@ -187,6 +196,7 @@ void showGames() {
 
 
 int main() {
+    generateBank();
     showShop();
     return 0;
 }
