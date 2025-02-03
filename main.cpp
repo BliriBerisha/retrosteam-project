@@ -14,6 +14,10 @@ int main() {
     showlogin();
     cout << endl;
     cout << endl;
+    generateBank();
+    cout << "Loading shop..." << endl;
+    this_thread::sleep_for(chrono::milliseconds(2000));
+    showShop();
 
     return 0;
 

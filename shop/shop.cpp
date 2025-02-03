@@ -14,6 +14,7 @@ void generateBank() {
         srand(time(0));
         bank = (rand() % 41 + 10) * 10;
  }
+ 
 
 
 
@@ -40,6 +41,8 @@ struct Game {
     status purchaseStatus;
 };
 
+
+//stock of games
 Game games[] = {
     {"The Elder Scrolls V: Skyrim", SPECIAL, "Special Edition (with all DLCs)", 49.99, NOT_PURCHASED},
     {"Cyberpunk 2077", COLLECTORS, "Collector's Edition", 59.99, NOT_PURCHASED},
@@ -56,7 +59,8 @@ Game games[] = {
 
 
 
- 
+ //showShop function
+
 void showShop() {
 
     int choice;
@@ -73,9 +77,11 @@ void showShop() {
     this_thread::sleep_for(chrono::milliseconds(1000));
     cout << "You can also buy a subscription to play games for a limited time! " << endl;
     this_thread::sleep_for(chrono::milliseconds(1000));
-
+    cout << "--------------------------------" << endl;
     cout << "You have this amount of Retro-Money: " << bank << endl;
+    cout << "--------------------------------" << endl;
      menu:
+    cout << "--------------------------------" << endl;
     cout << "What would you like to buy?" << endl;
     this_thread::sleep_for(chrono::milliseconds(1000));
    
@@ -84,6 +90,7 @@ void showShop() {
     cout << "2. Gift Cards" << endl;
     cout << "3. Subscriptions" << endl;
     cout << "4. Exit" << endl;
+    cout << "--------------------------------" << endl;
     this_thread::sleep_for(chrono::milliseconds(1000));
     cout << "Enter your choice (in numbers): ";
     cin>> choice;
@@ -131,12 +138,15 @@ void showShop() {
 //showGames function
 
 void showGames() {
+    this_thread::sleep_for(chrono::milliseconds(1000));
     int gameChoice;
    
     char paymentChoice;
     gameMenu:
     cout << "Games available in the shop:" << endl;
+     this_thread::sleep_for(chrono::milliseconds(500));
     cout << "--------------------------------" << endl;
+    cout << "Your current balance: " << bank << endl;
     cout << "0. Exit" << endl;
     for (int i = 0 ; i< sizeof(games)/sizeof(games[0]); i++) {
         cout << i+1 << ". " << games[i].title <<  " - " << games[i].price << endl;
@@ -238,7 +248,3 @@ void showGames() {
 
 
 
-int main() {
-    generateBank();
-    return 0;
-}
