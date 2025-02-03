@@ -34,7 +34,8 @@ void showOutro() {
         "     | | |          | |  |",
         "     | | |          | |  |",
         "     |_|_|          |_|__|",
-        "     [__)_)        (_(___])"
+        "     [__)_)        (_(___])",
+        "           Exiting...                     "
        
         
     };
@@ -43,5 +44,7 @@ void showOutro() {
         cout << line << endl;
         this_thread::sleep_for(chrono::milliseconds(100));
     }
+
+    this_thread::sleep_for(chrono::milliseconds(3000));
 }
 
