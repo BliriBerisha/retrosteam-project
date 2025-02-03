@@ -170,7 +170,7 @@ void showGames() {
     cout << "Proceed to payment?" << endl;
     cout << "Enter 'Y' for Yes or 'N' for No: ";
     cin >> paymentChoice;
-
+// bug fix
     switch (paymentChoice) {
         case 'Y':
         case 'y':
@@ -179,28 +179,28 @@ void showGames() {
             cout << "Redirecting to payment..." << endl;
             this_thread::sleep_for(chrono::milliseconds(1000));
 
+            if (games[gameChoice-1].purchaseStatus == PURCHASED) {
+                cout << "You have already bought this game!" << endl;
+                cout << "Returning back..." << endl;
+                this_thread::sleep_for(chrono::milliseconds(1000));
+                goto gameMenu;
+            }
             if (games[gameChoice-1].price > bank) {
                 cout << "You don't have enough money to buy this game!" << endl;
                 cout << "Returning back..." << endl;
                 this_thread::sleep_for(chrono::milliseconds(1000));
                 goto gameMenu;
             }
+          
+
             //buying game
-             else {
-                if (games[gameChoice-1].purchaseStatus == PURCHASED) {
-                    cout << "You have already bought this game!" << endl;
-                    cout << "Returning to back..." << endl;
-                    this_thread::sleep_for(chrono::milliseconds(1000));
-                    goto gameMenu;
-                }
-                bank -= games[gameChoice-1].price;
-                cout << "You have successfully bought " << games[gameChoice-1].title << "!" << endl;
-                cout << "Your remaining balance is: " << bank << endl;
-                cout << "Returning back..." << endl;
-                games[gameChoice-1].purchaseStatus = PURCHASED;
-                this_thread::sleep_for(chrono::milliseconds(1000));
-                goto gameMenu;
-            }
+            bank -= games[gameChoice-1].price;
+            cout << "You have successfully bought " << games[gameChoice-1].title << "!" << endl;
+            cout << "Your remaining balance is: " << bank << endl;
+            cout << "Returning back..." << endl;
+            games[gameChoice-1].purchaseStatus = PURCHASED;
+            this_thread::sleep_for(chrono::milliseconds(1000));
+            goto gameMenu;
             
             break;
         case 'N':
