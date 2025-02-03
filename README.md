@@ -64,7 +64,7 @@ retrosteam-project-main/
 - "Please use the username 'admin' and password 'admin' to log in and grant yourself **1,000,000 money** in the bank to check out the project." (optional)
 - Normal users will be granted random amount of bank money (retro-money)
 
-## 🛠 Requirements
+# 🛠 Requirements
 - Use Visual Studio Code and execute through terminal (highly recommended)
 - C++ Compiler (g++)
 - Compatible terminal to run the executable
