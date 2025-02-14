@@ -401,7 +401,6 @@ cout << endl;
         cout << "Returning back..." << endl;
         goto GiftCardMenu;
 
-        showGiftCards;
     } else if (giftCardchoice == 0) {
         cout << "Exiting..." << endl;
         showShop();
